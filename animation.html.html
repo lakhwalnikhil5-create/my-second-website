@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKHIL CHARANSING RAJPUT Portfolio</title>
+
+    <style>    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling between sections */
+        }
+
+        body {
+            color: white;
+            background: linear-gradient(135deg, #141e30, #4b0082, #ff00b7);
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav h2 {
+            color: #f83838;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd166; /* Hover karne par link color badlega */
+        }
+
+        /* Hero Section with Fade In Animation */
+        .hero {
+            text-align: center;
+            padding: 90px 20px 65px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 45px; 
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #f83862;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        /* Button Hover Effects */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: linear-gradient(90deg, #2fc4ff, #dd2476);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(221, 36, 118, 0.4);
+        }
+
+        section {
+            padding: 35px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #ffd166;
+            margin-bottom: 22px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Card Hover Lift-up Effects */
+        .card {
+            background: rgba(15, 23, 42, 0.65);
+            padding: 25px;
+            border-radius: 15px;
+            width: 250px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffd166;
+            box-shadow: 0 15px 30px rgba(255, 209, 102, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #ffd166;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+        /* Popup Background CSS */
+        .modal {
+            display: none; /* Shuru mein chhupa rahega */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            backdrop-filter: blur(8px);
+        }
+
+        /* Popup Content Box */
+        .modal-content {
+            background: rgba(25, 20, 40, 0.95);
+            margin: 15% auto;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            width: 80%;
+            max-width: 550px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 210, 255, 0.4);
+            animation: modalFade 0.4s ease;
+        }
+
+        @keyframes modalFade {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        /* Close Button (X) */
+        .close-btn {
+            color: #ff00b7;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #00d2ff;
+        }
+    </style> 
+</head>
+
+<body>
+
+    <nav>
+        <h2>NIKHIL's Portfolio</h2>
+        <div>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 class="hero-title">HELLO, I'm <span>NIKHIL CHARANSING RAJPUT</span></h1>
+        <p>
+            Electronics & Computer Engineering Student<br>
+            Aspiring Software Engineer | C | Python | HTML
+        </p>
+        <a href="#projects" class="btn">Explore My Projects</a>
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hello i am NIKHIL RAJPUT!
+            i am passionate and motivational electronics and computer Engineering student pursuing my bachelor of technology degree (B.tech) at MIT, chhatrapati sambhajinagar,
+            maharashtra,india. i have strong interest in sofrware development,programming,computer techology and problem solving.i believe that technology has power to solve
+            real world problems and make a positive impact on society. this curiosity motivate me to explore new technologies, develop my programming skills and build practical 
+            project.
+        </p>
+    </section>
+            
+            <h3 style="text-align: center; color: yellow;">MY EDUCATIONAL JOURNEY</h3>
+            <p>
+            
+                  i am currently in the second year of my B.tech degree in electronics and computer engineering at MIT, chhatrapati sambhajinagar.
+                 my academic journey has helped me develop a strong foundation programming, electronics and computor science concept.
+                        during my first year, i learned C programming and develop my interest in understanding how programs works logocally.
+                    i also explored python programming, which help me to become more familiar with programming conceptsand problem solving. 
+                    along with academics, i continuosly work on improving my technical knowledge through practical learning, personal project,
+                    online courses, codind exercises and  certifications. 
+        </p>
+    </section>
+            <h3 style="text-align: center; color: rgb(24, 124, 212);">MY TECHNICAL SKILLS</h3>
+            <p>
+                i am continuosly developing my technical skills and gaining practical experience in different areas of technology.
+                C PROGRAMMING: understanding programming programming fundamentals, logic building, functions, loops, array and problem solving.
+                PYTHON:learning programming concepts, writing programs and logical thinking.
+                HTML: basics of HTML and CSS, building and designing my first website.
+                GITHUB: learning version control, collaborating on projects and sharing code with others.
+                </p>
+    </section>
+            <h3 style="text-align: center; color: rgba(214, 124, 68, 0.492);">MY CAREER OBJECTUVE</h3>
+            <p>
+                My long-term career goal is to become a skilled Software Engineer and work with a technology-driven organization where I can apply my knowledge, develop innovative solutions, and contribute to real-world projects.
+Although my academic branch is Electronics and Computer Engineering, I am actively building my software development skills through programming, DSA, web development, and hands-on projects.
+I aim to secure internship opportunities, gain industry experience, improve my technical abilities, and prepare myself for a successful career in the IT industry.
+
+
+
+                
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>C Programming</h3>
+                <p>Learning programming logic and problem solving.</p>
+            </div>
+            <div class="card">
+                <h3>Python</h3>
+                <p>Practicing Python programs and basic concepts.</p>
+            </div>
+            <div class="card">
+                <h3>HTML & CSS</h3>
+                <p>Building and designing my first website.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>C Programming Practice</h3>
+                <p>A collection of C programs to practice.</p>
+            </div>
+            <div class="card" onclick="openModal()" style="cursor: pointer;">
+                <h3>Smart Home Automation</h3>
+                <p>An Arduino-based project to control home appliances using a mobile app.</p>
+                <span style="color: #00d2ff; font-size: 13px; display: block; margin-top: 10px; font-weight: bold;">Click for Details →</span>
+            </div>
+            <div class="card">
+                <h3>NIKHIL's Portfolio</h3>
+                <p>My first personal website using HTML and CSS.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Project Details Popup (Modal) -->
+    <!-- Complete Detailed Project Documentation Popup (Modal) -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content" style="text-align: left; max-height: 85vh; overflow-y: auto; padding: 30px 40px; border-radius: 20px; max-width: 700px;">
+            <span class="close-btn" onclick="closeModal()" style="position: sticky; top: 0; float: right; background: rgba(25, 20, 40, 0.95); padding: 0 5px; border-radius: 50%;">&times;</span>
+            
+            <h2 style="color: #00d2ff; text-align: center; margin-bottom: 25px; border-bottom: 2px solid rgba(0, 210, 255, 0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">
+                Smart Home Automation System
+            </h2>
+            
+            <!-- 1. Introduction -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">1. Introduction</h3>
+                <p style="line-height: 1.6; color: #e0e0e0;">Smart Home Automation is a technology that allows users to control home electrical appliances using a mobile application. In this project, we developed a system to control appliances such as lights and fans through a smartphone. The system uses wireless communication and electronic switching to operate appliances conveniently without manually using traditional switches.</p>
+            </div>
+
+            <!-- 2. Objectives -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">2. Objectives</h3>
+                <ol style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>To develop a smart home automation system.</li>
+                    <li>To control electrical appliances using a mobile phone.</li>
+                    <li>To reduce manual effort.</li>
+                    <li>To provide convenient operation of home appliances.</li>
+                    <li>To understand automation and electronic control systems.</li>
+                    <li>To improve energy management.</li>
+                </ol>
+            </div>
+
+            <!-- 3. Components Required -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">3. Components Required</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li><strong>Microcontroller</strong> – Acts as the main controlling unit.</li>
+                    <li><strong>Wi-Fi Module</strong> – Provides wireless communication.</li>
+                    <li><strong>Relay Module</strong> – Controls the switching of electrical appliances.</li>
+                    <li><strong>Bulb</strong> – Demonstrates ON/OFF switching.</li>
+                    <li><strong>Fan</strong> – Demonstrates appliance control.</li>
+                    <li><strong>Power Supply</strong> – Provides electrical power to the circuit.</li>
+                    <li><strong>Connecting Wires</strong> – Used for circuit connections.</li>
+                </ul>
+            </div>
+
+            <!-- 4. Block Diagram -->
+            <div style="margin-bottom: 20px; background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 4px solid #00d2ff;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">4. Block Diagram</h3>
+                <p style="line-height: 1.6; color: #00d2ff; font-weight: bold; text-align: center; font-size: 15px;">
+                    Mobile Application &rarr; Wireless Communication &rarr; Microcontroller &rarr; Relay Module &rarr; Electrical Appliances (Bulb and Fan)
+                </p>
+            </div>
+
+            <!-- 5. Working Principle -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">5. Working Principle</h3>
+                <p style="line-height: 1.6; color: #e0e0e0; margin-bottom: 8px;">The Smart Home Automation System works on the principle of wireless communication and electrical switching.</p>
+                <ol style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>The user gives a command through a mobile application.</li>
+                    <li>The command is transmitted wirelessly to the controller.</li>
+                    <li>The microcontroller receives and processes the command.</li>
+                    <li>The controller operates the relay module.</li>
+                    <li>The relay switches the connected appliance ON or OFF.</li>
+                    <li>The user can control appliances using a smartphone.</li>
+                </ol>
+            </div>
+
+            <!-- 6. Advantages -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">6. Advantages</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>Easy operation of home appliances.</li>
+                    <li>Reduces manual effort.</li>
+                    <li>Provides wireless control.</li>
+                    <li>Convenient operation.</li>
+                    <li>Can control multiple appliances.</li>
+                    <li>Helps in energy management.</li>
+                </ul>
+            </div>
+
+            <!-- 7. Applications -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">7. Applications</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>Smart homes, Offices, and Hotels.</li>
+                    <li>Hospitals and Educational institutions.</li>
+                    <li>Automatic lighting systems.</li>
+                </ul>
+            </div>
+
+            <!-- 8. Limitations -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">8. Limitations</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>Requires a reliable communication connection.</li>
+                    <li>Depends on electrical power and network stability.</li>
+                    <li>Initial installation cost and safety arrangements required.</li>
+                </ul>
+            </div>
+
+            <!-- 9. Future Scope -->
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">9. Future Scope</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: #e0e0e0;">
+                    <li>Voice-controlled home appliances & Integration with Google Assistant.</li>
+                    <li>Automatic lighting using sensors & Temperature-based fan control.</li>
+                    <li>Smart energy monitoring & Remote global control.</li>
+                </ul>
+            </div>
+
+            <!-- 10. Conclusion -->
+            <div style="margin-bottom: 10px;">
+                <h3 style="color: #ffd166; margin-bottom: 8px; font-size: 18px;">10. Conclusion</h3>
+                <p style="line-height: 1.6; color: #e0e0e0;">The Smart Home Automation System is a useful application of electronics and automation technology. It allows users to control electrical appliances such as lights and fans through a mobile application. This project helps us understand wireless communication, microcontrollers, relay switching and practical applications of IoT.</p>
+            </div>
+        </div>
+    </div>
+<!-- Real Certifications Section -->
+    <section id="certificates">
+        <h2>Certifications & Achievements</h2>
+        <div class="cards">
+            
+            <!-- 1. Introduction to Semiconductors (Intel) -->
+            <div class="card">
+                <h3>Introduction to Semiconductors</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">Intel & India Semiconductor Mission</p>
+                <p>Micro-learning course focusing on semiconductor foundations and ecosystem growth.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">October 2026</span>
+            </div>
+
+            <!-- 2. Introduction to C (Sololearn) -->
+            <div class="card">
+                <h3>Introduction to C</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">Sololearn</p>
+                <p>Demonstrated theoretical and practical understanding of core C programming concepts.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">December 2025</span>
+            </div>
+
+            <!-- 3. Basics of Python (UniAthena) -->
+            <div class="card">
+                <h3>Basics of Python</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">UniAthena & Cambridge Int. Qualifications</p>
+                <p>Successfully mastered fundamental Python programming syntax, logic, and structures.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">August 2026</span>
+            </div>
+
+            <!-- 4. Introduction to IoT (Simplilearn) -->
+            <div class="card">
+                <h3>Introduction to IoT</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">Simplilearn SkillUp</p>
+                <p>Deepened core understanding and skills in Internet of Things ecosystem and connectivity.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">August 2026</span>
+            </div>
+
+            <!-- 5. Cyber Security & Digital Awareness (EvolveClub) -->
+            <div class="card">
+                <h3>Cyber Security & Digital Awareness</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">EvolveClub Sambhaji Nagar</p>
+                <p>Qualified assessment with a perfect score of 100% (20/20 points) in digital security.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">August 2026</span>
+            </div>
+
+            <!-- 6. Interview Preparation Job Simulation (Forage) -->
+            <div class="card">
+                <h3>Interview Preparation Simulation</h3>
+                <p style="font-size: 14px; color: #ffd166; margin-bottom: 5px;">Ashurst / Forage</p>
+                <p>Completed practical tasks in commercial awareness, motivation, and research skills.</p>
+                <span style="display: inline-block; background: rgba(0, 210, 255, 0.2); color: #00d2ff; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; font-weight: bold;">August 2026</span>
+            </div>
+
+        </div>
+    </section>
+    <!---Education Section--->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>MIT Sambhajinagar</h3>
+                <p>Bachelor of Electronics and Computer Engineering (2025 - 2029)</p>
+            </div>
+            <div class="card">
+                <h3>High School</h3>
+                <p>Sunrise English School (2021 - 2024)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Connect With Me</h2>
+        <p>Let's learn, build, and grow together!</p>
+        <a href="https://github.com" class="btn" target="_blank">GitHub</a>
+        <a href="https://linkedin.com" class="btn" target="_blank">LinkedIn</a>
+    </section>
+
+    <footer>
+        <p>© 2026 My Portfolio | Created with HTML & CSS</p>
+    </footer>
+<script>
+        function openModal() {
+            document.getElementById("projectModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("projectModal").style.display = "none";
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById("projectModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
